@@ -1,4 +1,5 @@
 // Timer
+var secondsLeft = 60;
 
 var timeSec = document.querySelector("#timer");
 
@@ -11,6 +12,8 @@ var score = document.querySelector("#score");
 var scoreJS = 0;
 
 var questionIndex = 0;
+
+
 
 // need this to update for every question
 score.textContent = "Current Score: " + scoreJS;
@@ -88,6 +91,8 @@ function displayQuestion() {
       var selectedAnswer = event.target.textContent;
       if (selectedAnswer === currentQuestion.answer) {
         scoreJS++;
+      } else {
+        secondsLeft -= 5;
       }
       questionContainer.textContent = "";
       questionIndex++;
@@ -105,7 +110,6 @@ function displayQuestion() {
 }
 
 function Timer() {
-  var secondsLeft = 60;
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeSec.textContent = "Times Up In " + secondsLeft;
