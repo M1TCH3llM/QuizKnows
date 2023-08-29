@@ -1,0 +1,68 @@
+Game Plan 
+
+Create Repo: Done 
+Create file strucketure
+        assets -------- style.css, script.js
+        index.html 
+        highscore.html 
+        README.md 
+
+project pieces:
+                                        strucketure HTML 
+                                    hook up CSS & JS files to html
+
+    HTML 
+                                                 Link to high scores page - link to hs and link to index
+                                                            anchor tag for link 
+                                                                      create three sections in html 
+                                                         1. start
+                                                            show start section
+                                                              start button
+                                                            attach event listener
+                                                                     timer to start, 
+
+                        quiz page shows 
+                        hide start section
+                        display question
+            2. quiz 
+                var question = 
+                [
+                    {
+                        question: 'question on ?',
+                        choices: ['red','green','blue','yellow']
+                        answer: 'red'
+                    },
+                    {
+                        question: 'question on ?',
+                        choices: ['red','green','blue','yellow']
+                        answer: 'red'
+                    },
+                    {
+                        question: 'question on ?',
+                        choices: ['red','green','blue','yellow']
+                        answer: 'red'
+                    },
+                ]
+                Build a display question function
+                attaching click events to each option
+                when clicked check if answer is right or wrong
+                    RIGHT = CORRECT 
+                    WRONG = WRONG 
+                    then display next question 
+                    when wrong timers decrements by a value of 5/ score
+                check if times / score is = to 0 
+                    if zero game ends, if < 0 
+                    else next question 
+                    if last question then display results
+            3. results
+                for Or an input with a button 
+                    when button is clicked 
+                        grab score and store it in local storage
+                        score array append new scores 
+
+                        high scores.html 
+                            display all scores in descending order.
+                            highscore .js file
+
+            
+   

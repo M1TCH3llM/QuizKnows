@@ -8,14 +8,23 @@
   </head>
   <body>
     <header>
-      <div>View Score</div>
+      <a href="./assets/HighScore.html">View High Scores</a>
       <div id="timer"></div>
     </header>
     <main>
-      <article>
-        <button>Submit Answer</button>
-      </article>
+      <div id="start" data-start="Active">
+        <h1>JavaScript Quiz</h1>
+        <p>
+          Rules: Each question you get right gives you one point, when you
+          answer a question wrong time gets taken away from your quiz time. Good
+          Luck!
+        </p>
+        <button id="startQuiz">Start Quiz</button>
+      </div>
+      <div id="quiz"></div>
+      <div id="results"></div>
     </main>
+    <footer id="score">Current Score:</footer>
     <script src="./assets/script.js"></script>
   </body>
 </html>
