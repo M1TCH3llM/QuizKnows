@@ -1,5 +1,5 @@
 // Timer
-var secondsLeft = 60;
+var secondsLeft = 30;
 
 var timeSec = document.querySelector("#timer");
 
@@ -15,8 +15,7 @@ var scoreJS = 0;
 
 var questionIndex = 0;
 
-// need this to update for every question
-score.textContent = "Current Score: " + scoreJS;
+var timerInterval;
 
 var question = [
   {
@@ -93,6 +92,7 @@ function displayQuestion() {
       } else {
         secondsLeft = secondsLeft - 5;
       }
+      score.textContent = "Current Score: " + (scoreJS + secondsLeft);
       questionContainer.textContent = "";
       questionIndex++;
       if (questionIndex < question.length) {
@@ -100,9 +100,10 @@ function displayQuestion() {
         displayQuestion();
       } else {
         scoreDisplay();
+        clearInterval(timerInterval);
+        timeSec.textContent = "Time added to score! " + secondsLeft;
       }
     });
-
     choicesList.appendChild(answersJS);
   }
   questionContainer.appendChild(choicesList);
@@ -110,8 +111,9 @@ function displayQuestion() {
 
 function scoreDisplay() {
   score.textContent = "You Scored " + (scoreJS + secondsLeft) + "!";
-  var initialInput = document.createElement("INPUT");
+  var initialInput = document.createElement("input");
   initialInput.setAttribute("type", "text");
+  initialInput.setAttribute("value", "Enter Name!");
   questionContainer.appendChild(initialInput);
 
   var submitButton = document.createElement("button");
@@ -119,16 +121,32 @@ function scoreDisplay() {
   submitButton.setAttribute("id", "scoreButton");
   questionContainer.appendChild(submitButton);
   submitButton.textContent = "Submit Score";
+
+  submitButton.addEventListener("click", function () {
+    var name = initialInput.value;
+
+    storeScore(name);
+  });
 }
 
 function Timer() {
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeSec.textContent = "Times Up In " + secondsLeft;
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       timeSec.textContent = "Time Is Up!";
+      questionContainer.innerHTML = "";
+      scoreDisplay();
     }
   }, 1000);
+}
+
+function storeScore(name) {
+  var previousScores = JSON.parse(localStorage.getItem("scores")) || [];
+  previousScores.push({ name, score: scoreJS + secondsLeft });
+  localStorage.setItem("scores", JSON.stringify(previousScores));
+
+  window.location.assign("HighScore.html");
 }
