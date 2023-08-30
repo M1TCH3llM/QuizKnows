@@ -5,6 +5,8 @@ var timeSec = document.querySelector("#timer");
 
 var start = document.querySelector("#start");
 
+var questionContainer = document.getElementById("quiz");
+
 var startTime = document.querySelector("#startQuiz");
 
 var score = document.querySelector("#score");
@@ -13,17 +15,8 @@ var scoreJS = 0;
 
 var questionIndex = 0;
 
-
-
 // need this to update for every question
 score.textContent = "Current Score: " + scoreJS;
-
-startTime.addEventListener("click", function (event) {
-  start.textContent = "";
-
-  displayQuestion();
-  Timer();
-});
 
 var question = [
   {
@@ -74,9 +67,15 @@ var question = [
   },
 ];
 
+startTime.addEventListener("click", function (event) {
+  start.textContent = "";
+
+  displayQuestion();
+  Timer();
+});
+
 function displayQuestion() {
   var currentQuestion = question[questionIndex];
-  var questionContainer = document.getElementById("quiz");
   questionContainer.textContent = "";
 
   var questionElement = document.createElement("h2");
@@ -85,14 +84,14 @@ function displayQuestion() {
 
   var choicesList = document.createElement("ul");
   for (var i = 0; i < currentQuestion.choices.length; i++) {
-    var answersJS = document.createElement("li");
+    var answersJS = document.createElement("button");
     answersJS.textContent = currentQuestion.choices[i];
     answersJS.addEventListener("click", function (event) {
       var selectedAnswer = event.target.textContent;
       if (selectedAnswer === currentQuestion.answer) {
         scoreJS++;
       } else {
-        secondsLeft -= 5;
+        secondsLeft = secondsLeft - 5;
       }
       questionContainer.textContent = "";
       questionIndex++;
@@ -100,13 +99,26 @@ function displayQuestion() {
         currentQuestion = question[questionIndex];
         displayQuestion();
       } else {
-        score.textContent = "You Scored " + scoreJS + "!";
+        scoreDisplay();
       }
     });
 
     choicesList.appendChild(answersJS);
   }
   questionContainer.appendChild(choicesList);
+}
+
+function scoreDisplay() {
+  score.textContent = "You Scored " + (scoreJS + secondsLeft) + "!";
+  var initialInput = document.createElement("INPUT");
+  initialInput.setAttribute("type", "text");
+  questionContainer.appendChild(initialInput);
+
+  var submitButton = document.createElement("button");
+  submitButton.setAttribute("type", "Button");
+  submitButton.setAttribute("id", "scoreButton");
+  questionContainer.appendChild(submitButton);
+  submitButton.textContent = "Submit Score";
 }
 
 function Timer() {

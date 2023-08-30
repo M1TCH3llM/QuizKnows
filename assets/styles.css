@@ -33,14 +33,30 @@ h2 {
   font-weight: bold;
 }
 
-li {
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: lower-alpha;
+  text-align: left;
+}
+
+ul button {
+  border: none;
+  text-align: left;
   font-size: 1.5rem;
   font-family: Arial, Helvetica, sans-serif;
-  list-style: lower-alpha;
+  background-color: none;
+  margin: 1rem;
 }
 
 #quiz {
-  /* border: 2px solid black; */
   text-align: left;
-  /* width: 40%; */
+  display: flex;
+  flex-direction: column;
+}
+
+#scoreButton {
+  margin: 1rem;
+  font-size: large;
+  background-color: azure;
 }
