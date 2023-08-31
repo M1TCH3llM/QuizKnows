@@ -38,7 +38,7 @@ header {
 a {
   text-decoration: none;
   color: whitesmoke;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 10px;
   background-color: black;
 }
@@ -115,7 +115,7 @@ ul button:hover {
 
 #scoreButton {
   color: black;
-  background-color: whitesmoke;
+  background-color: powderblue;
   box-shadow: 5px 5px 10px 0px black;
   text-decoration: none;
   padding: 5px;
@@ -137,6 +137,7 @@ ul button:hover {
   font-size: 1.5rem;
   box-shadow: inset 2px 2px 10px 0px rgba(0, 0, 0, 0.364);
   border: none;
+  margin: 1rem;
 }
 
 /* CSS FOR HIGH SCORE PAGE */
