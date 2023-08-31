@@ -1,5 +1,5 @@
 // Timer
-var secondsLeft = 30;
+var secondsLeft = 60;
 
 var timeSec = document.querySelector("#timer");
 
@@ -64,6 +64,49 @@ var question = [
     choices: ["Worldly", "Global", "Universal", "Local"],
     answer: "Global",
   },
+  {
+    question:
+      "Which keyword is used to declare a constant variable in JavaScript?",
+    choices: ["var", "let", "const", "variable"],
+    answer: "const",
+  },
+  {
+    question: "Which built-in method is used to convert a string to uppercase?",
+    choices: [
+      "toUpperCase()",
+      "toUppercase()",
+      "upperCase()",
+      "toUpperCaseCase()",
+    ],
+    answer: "toUpperCase()",
+  },
+  {
+    question: "What does the NaN value represent in JavaScript?",
+    choices: ["Negative number", "Null value", "Not a Number", "No argument"],
+    answer: "Not a Number",
+  },
+  {
+    question:
+      "What is the correct way to add a new element to the end of an array?",
+    choices: [
+      "array.add(item)",
+      "array.push(item)",
+      "array.append(item)",
+      "array.insert(item)",
+    ],
+    answer: "array.push(item)",
+  },
+  {
+    question:
+      "Which operator is used to combine two or more strings in JavaScript?",
+    choices: ["&", "+", "*", "/"],
+    answer: "+",
+  },
+  {
+    question: "What is the result of the expression '5' + 3?",
+    choices: ["8", "53", "35", "NaN"],
+    answer: "53",
+  },
 ];
 
 startTime.addEventListener("click", function (event) {
@@ -92,7 +135,7 @@ function displayQuestion() {
       } else {
         secondsLeft = secondsLeft - 5;
       }
-      score.textContent = "Current Score: " + (scoreJS + secondsLeft);
+      score.textContent = "Current Score: " + scoreJS;
       questionContainer.textContent = "";
       questionIndex++;
       if (questionIndex < question.length) {
@@ -113,6 +156,7 @@ function scoreDisplay() {
   score.textContent = "You Scored " + (scoreJS + secondsLeft) + "!";
   var initialInput = document.createElement("input");
   initialInput.setAttribute("type", "text");
+  initialInput.setAttribute("id", "nameInput");
   initialInput.setAttribute("value", "Enter Name!");
   questionContainer.appendChild(initialInput);
 
