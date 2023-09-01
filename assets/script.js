@@ -197,7 +197,7 @@ function scoreDisplay() {
   // sets id of #nameInput
   initialInput.setAttribute("id", "nameInput");
   // sets value text enter name
-  initialInput.setAttribute("value", "Enter Name!");
+  initialInput.setAttribute("placeholder", "Enter Name!");
   // makes it a child of the question container
   questionContainer.appendChild(initialInput);
 

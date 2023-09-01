@@ -87,6 +87,7 @@ ul {
   flex-direction: column;
   list-style: lower-alpha;
   text-align: left;
+  height: 15rem;
 }
 
 ul button {
@@ -109,6 +110,7 @@ ul button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 25rem;
 }
 
 /* Score submit styling */

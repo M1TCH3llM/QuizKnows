@@ -31,4 +31,4 @@ At the end of the quiz, you can input your name and submit your score.
 
 #Photo
 
-[Project Photo](./assets/Screenshot%202023-08-31%20at%203.57.32%20PM.png)
+![Project Photo](./assets/QuizKnowsPhoto.png)
